@@ -11,6 +11,8 @@ typedef struct Queue
 	
 } Queue;
 
+void printQueue(Queue* q);
+
 void initQueue(Queue* q, unsigned int size);
 void cleanQueue(Queue* q);
 

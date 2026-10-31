@@ -7,7 +7,7 @@ typedef struct Queue
 {
 	int Capacity;
 	int CurrentAmout;
-	int* Values;
+	unsigned int* Values;
 	
 } Queue;
 

@@ -2,50 +2,51 @@
 #include "LinkedList.h"
 #include <iostream>
 
-void push(Stack* s, unsigned int element)
-{
-	LinkedListNode* Curr = s->StackList;
-	while(Curr->next != NULL)
-	{
-		Curr = Curr->next;
-	}
-	Curr->next->Value = element;
-}
-int pop(Stack* s)
-{
-	if (isEmpty(s))
-	{
-		return -1;
-	}
-	LinkedListNode* Curr = s->StackList;
-	LinkedListNode* PerviousNode = NULL;
-	while (Curr->next!= NULL)
-	{
-		PerviousNode = Curr;
-		Curr = Curr->next;
-	}
-	PerviousNode->next = NULL;
-
-	return Curr->Value;
-
-}
-
 void initStack(Stack* s)
 {
-	s->StackList->next = NULL;
-	
-}
-void cleanStack(Stack* s)
-{
-	delete[] s->StackList;
+    //create new list
+    s->StackList = NULL;
 }
 
 bool isEmpty(Stack* s)
 {
-	if (s->StackList == NULL)
-	{
-		return true;
-	}
-	return false;
+    if (s->StackList == NULL)
+    {
+        return true;
+    }
+    return false;
+}
 
+void push(Stack* s, unsigned int element)
+{
+    //create new node with the new element 
+    LinkedListNode* newNode = createNode(element);
+    //add the new node to the stack
+    if (newNode != NULL)
+    {
+        newNode->next = s->StackList;
+        s->StackList = newNode;
+    }
+}
+
+int pop(Stack* s)
+{
+    if (isEmpty(s))
+    {
+        return -1;
+    }
+
+    //get the first element
+    LinkedListNode* temp = s->StackList;
+    int val = temp->Value;
+
+    //move head 1 step forward to remove the poped element
+    s->StackList = s->StackList->next; 
+
+    return val;
+}
+
+void cleanStack(Stack* s)
+{
+    delete[] s;
 }

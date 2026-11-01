@@ -14,7 +14,7 @@ void printList(LinkedListNode* head)
 
 LinkedListNode* createNode(int val)
 {
-    LinkedListNode* newNode = new LinkedListNode[sizeof(LinkedListNode)];
+    LinkedListNode* newNode = new LinkedListNode;
     if (newNode != NULL)
     {
         newNode->Value = val;

@@ -1,5 +1,5 @@
-#ifndef QUEUE_H
-#define QUEUE_H
+#ifndef LINKEDLIST_H
+#define LINKEDLIST_H
 
 typedef struct LinkedListNode
 {
@@ -7,9 +7,10 @@ typedef struct LinkedListNode
 	ListNode* next;
 }ListNode;
 
+
 void printList(LinkedListNode* head);
 LinkedListNode* createNode(int val);
 
 
 
-#endif /* QUEUE_H */
+#endif /* LINKEDLIST_H */
